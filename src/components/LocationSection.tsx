@@ -1,6 +1,7 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { MapPin, Phone, Clock } from "lucide-react";
+import BookingForm from "@/components/BookingForm";
 
 export default function LocationSection() {
   const ref = useRef(null);
@@ -16,7 +17,7 @@ export default function LocationSection() {
           className="text-center mb-16"
         >
           <p className="font-body text-gold text-sm uppercase tracking-[0.3em] mb-4">
-            Find Us
+            Reserve Your Table
           </p>
           <h2 className="font-display text-4xl md:text-5xl font-bold text-warm-dark-foreground mb-4">
             Come for the <span className="italic">Flame</span>,
@@ -25,12 +26,25 @@ export default function LocationSection() {
           </h2>
         </motion.div>
 
+        {/* Booking Form */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ delay: 0.2, duration: 0.7 }}
+          className="max-w-2xl mx-auto mb-20 p-6 md:p-8 rounded-sm border border-warm-dark-foreground/10 bg-warm-dark-foreground/[0.03]"
+        >
+          <h3 className="font-display text-2xl font-bold text-warm-dark-foreground mb-6 text-center">
+            Book a Table
+          </h3>
+          <BookingForm />
+        </motion.div>
+
         <div className="grid md:grid-cols-2 gap-10 items-start">
           {/* Info */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ delay: 0.2, duration: 0.6 }}
+            transition={{ delay: 0.3, duration: 0.6 }}
             className="space-y-8"
           >
             <div className="flex gap-4">
@@ -54,17 +68,17 @@ export default function LocationSection() {
             <div className="flex gap-4">
               <Phone className="w-5 h-5 text-gold mt-1 flex-shrink-0" />
               <div>
-                <h3 className="font-display text-lg font-semibold text-warm-dark-foreground mb-1">Reservations</h3>
+                <h3 className="font-display text-lg font-semibold text-warm-dark-foreground mb-1">Contact</h3>
                 <p className="font-body text-warm-dark-foreground/60 text-sm mb-2">
-                  Book instantly via WhatsApp
+                  +91 89039 17600
                 </p>
                 <a
-                  href="https://wa.me/918903917600?text=Hi%2C%20I%27d%20like%20to%20book%20a%20table%20at%20WOK%20N%20KNIFE"
+                  href="https://wa.me/918903917600?text=Hi%2C%20I%27d%20like%20to%20know%20more%20about%20WOK%20N%20KNIFE"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-block px-6 py-3 bg-primary text-primary-foreground font-body text-sm font-semibold rounded-sm hover:bg-chili transition-colors uppercase tracking-wider"
                 >
-                  Book on WhatsApp
+                  Chat on WhatsApp
                 </a>
               </div>
             </div>
@@ -84,7 +98,7 @@ export default function LocationSection() {
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ delay: 0.3, duration: 0.6 }}
+            transition={{ delay: 0.4, duration: 0.6 }}
             className="rounded-sm overflow-hidden aspect-square md:aspect-[4/3]"
           >
             <iframe

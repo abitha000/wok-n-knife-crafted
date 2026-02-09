@@ -6,11 +6,13 @@ import SignatureSection from "@/components/SignatureSection";
 import GallerySection from "@/components/GallerySection";
 import LocationSection from "@/components/LocationSection";
 import Footer from "@/components/Footer";
+import WhatsAppFloat from "@/components/WhatsAppFloat";
 
 const Index = () => {
   return (
     <div className="min-h-screen">
       <Navbar />
+      <WhatsAppFloat />
       <HeroSection />
       <AboutSection />
       <MenuSection />
